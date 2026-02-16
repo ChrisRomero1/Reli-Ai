@@ -218,6 +218,7 @@
 
                 <!-- Live Audio Demo Card -->
                 <div class="relative" id="demo">
+                    <audio id="demoAudio" src="IMG_3912.mp3" preload="metadata"></audio>
                     <div class="glass-card rounded-3xl p-6 glow-orange animate-float">
                         <div class="bg-brand-dark rounded-2xl overflow-hidden">
                             <!-- Audio Player Header -->
@@ -762,49 +763,49 @@
                 duration: 4000 
             },
             { 
-                time: 4, 
+                time: 6, 
                 speaker: 'caller', 
                 text: "Hi, I need to book a haircut for tomorrow if possible.",
                 duration: 3000 
             },
             { 
-                time: 7, 
+                time: 10, 
                 speaker: 'ai', 
                 text: "Of course! I'd be happy to help you with that. What time works best for you tomorrow? We have openings at 10 AM, 2 PM, and 4 PM.",
                 duration: 6000 
             },
             { 
-                time: 13, 
+                time: 17, 
                 speaker: 'caller', 
                 text: "2 PM would be perfect.",
                 duration: 2000 
             },
             { 
-                time: 15, 
+                time: 19, 
                 speaker: 'ai', 
                 text: "Great choice! Is this for a cut only, or would you like a wash and style as well?",
                 duration: 4000 
             },
             { 
-                time: 19, 
+                time: 23, 
                 speaker: 'caller', 
                 text: "Just a cut please.",
                 duration: 2000 
             },
             { 
-                time: 21, 
+                time: 25, 
                 speaker: 'ai', 
                 text: "Perfect! A haircut at 2 PM tomorrow. May I have your name and phone number to confirm the booking?",
                 duration: 5000 
             },
             { 
-                time: 26, 
+                time: 31, 
                 speaker: 'caller', 
                 text: "It's Mike Johnson, 555-0123.",
                 duration: 3000 
             },
             { 
-                time: 29, 
+                time: 36, 
                 speaker: 'ai', 
                 text: "Thank you Mike! You're all set for tomorrow at 2 PM with our stylist Sarah. We'll send you a confirmation text. See you then!",
                 duration: 6000 
@@ -815,6 +816,7 @@
         let currentTime = 0;
         let demoInterval;
         let progressInterval;
+        const demoAudio = document.getElementById('demoAudio');
 
         // Generate waveform bars
         function generateWaveform() {
@@ -885,39 +887,26 @@
             isPlaying = true;
             document.getElementById('playIcon').classList.add('hidden');
             document.getElementById('pauseIcon').classList.remove('hidden');
-            
-            // Animate waveform
             document.querySelectorAll('.waveform-bar').forEach(bar => {
                 bar.style.animationPlayState = 'running';
             });
-            
-            // Start progress
-            progressInterval = setInterval(() => {
-                currentTime += 0.1;
-                document.getElementById('currentTime').textContent = formatTime(currentTime);
-                updateTranscript(currentTime);
-                
-                if (currentTime >= 35) {
-                    pauseAudio();
-                    currentTime = 0;
-                }
-            }, 100);
+            demoAudio.play();
         }
 
         function pauseAudio() {
             isPlaying = false;
             document.getElementById('playIcon').classList.remove('hidden');
             document.getElementById('pauseIcon').classList.add('hidden');
-            
             document.querySelectorAll('.waveform-bar').forEach(bar => {
                 bar.style.animationPlayState = 'paused';
             });
-            
             clearInterval(progressInterval);
+            demoAudio.pause();
         }
 
         function restartAudio() {
             pauseAudio();
+            demoAudio.currentTime = 0;
             currentTime = 0;
             document.getElementById('currentTime').textContent = '0:00';
             document.getElementById('transcriptContainer').innerHTML = '';
@@ -929,6 +918,20 @@
             const secs = Math.floor(seconds % 60);
             return `${mins}:${secs.toString().padStart(2, '0')}`;
         }
+
+        demoAudio.addEventListener('loadedmetadata', function() {
+            document.getElementById('duration').textContent = formatTime(demoAudio.duration);
+        });
+        demoAudio.addEventListener('timeupdate', function() {
+            currentTime = demoAudio.currentTime;
+            document.getElementById('currentTime').textContent = formatTime(currentTime);
+            updateTranscript(currentTime);
+        });
+        demoAudio.addEventListener('ended', function() {
+            pauseAudio();
+            currentTime = 0;
+            document.getElementById('currentTime').textContent = '0:00';
+        });
 
         // Initialize
         generateWaveform();
