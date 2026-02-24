@@ -1006,6 +1006,12 @@
                 const result = await response.json();
                 
                 if (result.success) {
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'generate_lead', {
+                            industry: form.querySelector('[name="industry"]').value,
+                            call_volume: form.querySelector('[name="call_volume"]').value
+                        });
+                    }
                     form.style.display = 'none';
                     successMsg.classList.remove('hidden');
                 } else {
