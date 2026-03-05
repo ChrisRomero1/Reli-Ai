@@ -55,10 +55,8 @@
         @keyframes waveform { 0%,100% { transform: scaleY(0.3); opacity: 0.5; } 50% { transform: scaleY(1); opacity: 1; } }
         .chat-message { opacity: 0; transform: translateY(10px); animation: messagePop 0.5s forwards; }
         @keyframes messagePop { to { opacity: 1; transform: translateY(0); } }
-        .playing-indicator { animation: pulse 2s infinite; }
         @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
     </style>
-    <base target="_blank">
 </head>
 <body class="font-sans antialiased overflow-x-hidden">
 
@@ -119,7 +117,6 @@
                             <i data-lucide="play" class="w-5 h-5"></i>Hear Live Demo
                         </a>
                     </div>
-                    <!-- CHANGED: Replaced fake social proof with "No contract" trust badge -->
                     <div class="flex items-center gap-3 pt-4">
                         <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
                             <i data-lucide="shield-check" class="w-4 h-4 text-brand-orange"></i>
@@ -332,7 +329,6 @@
                     </div>
                 </div>
             </div>
-            <!-- CHANGED: Removed "View All Industries" button, plain text only -->
             <div class="mt-12 text-center">
                 <p class="text-gray-400">Also serving gyms, consulting firms, restaurants, and more.</p>
             </div>
@@ -436,7 +432,6 @@
                         <span>Get My Quote</span>
                         <i data-lucide="arrow-right" class="w-5 h-5"></i>
                     </button>
-                    <!-- CHANGED: Fixed punctuation -->
                     <p class="text-center text-sm text-gray-500">No contract, cancel anytime.</p>
                 </form>
                 <div id="successMessage" class="hidden text-center py-12">
@@ -456,13 +451,14 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span class="text-brand-orange font-semibold tracking-wider uppercase text-sm">Get In Touch</span>
             <h2 class="text-4xl font-bold mt-4 mb-8">Ready to Never Miss a Call Again?</h2>
+
             <!-- AI Demo Call Banner -->
             <a href="tel:+14234186701" class="block glass-card rounded-2xl p-6 mb-8 glow-orange hover:border-brand-orange/50 transition-all group">
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <div class="w-14 h-14 bg-brand-orange rounded-full flex items-center justify-center flex-shrink-0 shadow-lg shadow-brand-orange/30 group-hover:scale-110 transition-transform">
                         <i data-lucide="bot" class="w-7 h-7 text-white"></i>
                     </div>
-                    <div>
+                    <div class="text-center sm:text-left">
                         <div class="flex items-center justify-center sm:justify-start gap-2 mb-1">
                             <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                             <span class="text-xs text-green-400 font-medium uppercase tracking-wider">Live AI Line</span>
@@ -482,12 +478,12 @@
                     <h3 class="font-semibold mb-2">Call Us</h3>
                     <p class="text-brand-orange">423-385-9996</p>
                 </a>
-                <a href="/cdn-cgi/l/email-protection#b1c3d4ddd89fd0d89f83818387f1d6dcd0d8dd9fd2dedc" class="glass-card rounded-2xl p-6 hover:border-brand-orange/30 transition-all group">
+                <a href="mailto:reli.ai.2026@gmail.com" class="glass-card rounded-2xl p-6 hover:border-brand-orange/30 transition-all group">
                     <div class="w-12 h-12 bg-brand-orange/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-orange/20 transition-colors">
                         <i data-lucide="mail" class="w-6 h-6 text-brand-orange"></i>
                     </div>
                     <h3 class="font-semibold mb-2">Email Us</h3>
-                    <p class="text-brand-orange text-sm"><span class="__cf_email__" data-cfemail="8ffdeae3e6a1eee6a1bdbfbdb9cfe8e2eee6e3a1ece0e2">[email&#160;protected]</span></p>
+                    <p class="text-brand-orange text-sm">reli.ai.2026@gmail.com</p>
                 </a>
                 <div class="glass-card rounded-2xl p-6 hover:border-brand-orange/30 transition-all group">
                     <div class="w-12 h-12 bg-brand-orange/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-orange/20 transition-colors">
@@ -520,7 +516,6 @@
                         <span class="font-semibold">What happens if the AI can't handle a call?</span>
                         <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform"></i>
                     </button>
-                    <!-- CHANGED: Removed "live agents" reference -->
                     <div class="hidden px-6 pb-4 text-gray-400">Our AI is trained to recognize when a situation needs human touch. It seamlessly transfers to you or your team so nothing falls through the cracks.</div>
                 </div>
                 <div class="glass-card rounded-xl overflow-hidden">
@@ -561,7 +556,7 @@
                         <a href="https://www.facebook.com/reliai" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-orange transition-colors group">
                             <i data-lucide="facebook" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
                         </a>
-                        <a href="/cdn-cgi/l/email-protection#2755424b4e09464e091517151167404a464e4b0944484a" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-orange transition-colors group">
+                        <a href="mailto:reli.ai.2026@gmail.com" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-orange transition-colors group">
                             <i data-lucide="mail" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
                         </a>
                         <a href="tel:423-385-9996" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-orange transition-colors group">
@@ -573,7 +568,7 @@
                     <h4 class="font-semibold mb-4">Contact</h4>
                     <ul class="space-y-3 text-gray-400">
                         <li><a href="tel:423-385-9996" class="hover:text-brand-orange transition-colors flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i>423-385-9996</a></li>
-                        <li><a href="/cdn-cgi/l/email-protection#f48691989dda959ddac6c4c6c2b49399959d98da979b99" class="hover:text-brand-orange transition-colors flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i><span class="__cf_email__" data-cfemail="453720292c6b242c6b77757773052228242c296b262a28">[email&#160;protected]</span></a></li>
+                        <li><a href="mailto:reli.ai.2026@gmail.com" class="hover:text-brand-orange transition-colors flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i>reli.ai.2026@gmail.com</a></li>
                     </ul>
                 </div>
                 <div>
@@ -597,24 +592,23 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         lucide.createIcons();
 
         const demoScript = [
-            { time: 0, speaker: 'ai', text: "Thank you for calling Style Studio! This is Lisa, your AI assistant. How can I help you today?", duration: 4000 },
-            { time: 6, speaker: 'caller', text: "Hi, I need to book a haircut for tomorrow if possible.", duration: 3000 },
-            { time: 10, speaker: 'ai', text: "Of course! I'd be happy to help you with that. What time works best for you tomorrow? We have openings at 10 AM, 2 PM, and 4 PM.", duration: 6000 },
-            { time: 17, speaker: 'caller', text: "2 PM would be perfect.", duration: 2000 },
-            { time: 19, speaker: 'ai', text: "Great choice! Is this for a cut only, or would you like a wash and style as well?", duration: 4000 },
-            { time: 23, speaker: 'caller', text: "Just a cut please.", duration: 2000 },
-            { time: 25, speaker: 'ai', text: "Perfect! A haircut at 2 PM tomorrow. May I have your name and phone number to confirm the booking?", duration: 5000 },
-            { time: 31, speaker: 'caller', text: "It's Mike Johnson, 555-0123.", duration: 3000 },
-            { time: 36, speaker: 'ai', text: "Thank you Mike! You're all set for tomorrow at 2 PM with our stylist Sarah. We'll send you a confirmation text. See you then!", duration: 6000 }
+            { time: 0, speaker: 'ai', text: "Thank you for calling Style Studio! This is Lisa, your AI assistant. How can I help you today?" },
+            { time: 6, speaker: 'caller', text: "Hi, I need to book a haircut for tomorrow if possible." },
+            { time: 10, speaker: 'ai', text: "Of course! I'd be happy to help you with that. What time works best for you tomorrow? We have openings at 10 AM, 2 PM, and 4 PM." },
+            { time: 17, speaker: 'caller', text: "2 PM would be perfect." },
+            { time: 19, speaker: 'ai', text: "Great choice! Is this for a cut only, or would you like a wash and style as well?" },
+            { time: 23, speaker: 'caller', text: "Just a cut please." },
+            { time: 25, speaker: 'ai', text: "Perfect! A haircut at 2 PM tomorrow. May I have your name and phone number to confirm the booking?" },
+            { time: 31, speaker: 'caller', text: "It's Mike Johnson, 555-0123." },
+            { time: 36, speaker: 'ai', text: "Thank you Mike! You're all set for tomorrow at 2 PM with our stylist Sarah. We'll send you a confirmation text. See you then!" }
         ];
 
         let isPlaying = false;
         let currentTime = 0;
-        let progressInterval;
         const demoAudio = document.getElementById('demoAudio');
 
         function generateWaveform() {
@@ -632,34 +626,34 @@
         function updateTranscript(currentSeconds) {
             const container = document.getElementById('transcriptContainer');
             demoScript.forEach((line, index) => {
-                if (currentSeconds >= line.time && !document.getElementById(`msg-${index}`)) {
+                if (currentSeconds >= line.time && !document.getElementById('msg-' + index)) {
                     const msgDiv = document.createElement('div');
-                    msgDiv.id = `msg-${index}`;
+                    msgDiv.id = 'msg-' + index;
                     msgDiv.className = 'chat-message flex gap-3 mb-3';
                     if (line.speaker === 'ai') {
-                        msgDiv.innerHTML = `
-                            <div class="w-8 h-8 rounded-full bg-brand-orange/20 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="bot" class="w-4 h-4 text-brand-orange"></i>
-                            </div>
-                            <div class="flex-1">
-                                <div class="bg-brand-gray rounded-2xl rounded-tl-none px-4 py-3 inline-block">
-                                    <p class="text-sm text-gray-300">${line.text}</p>
-                                </div>
-                                <span class="text-xs text-gray-500 ml-2">AI Receptionist</span>
-                            </div>`;
+                        msgDiv.innerHTML =
+                            '<div class="w-8 h-8 rounded-full bg-brand-orange/20 flex items-center justify-center flex-shrink-0">' +
+                                '<i data-lucide="bot" class="w-4 h-4 text-brand-orange"></i>' +
+                            '</div>' +
+                            '<div class="flex-1">' +
+                                '<div class="bg-brand-gray rounded-2xl rounded-tl-none px-4 py-3 inline-block">' +
+                                    '<p class="text-sm text-gray-300">' + line.text + '</p>' +
+                                '</div>' +
+                                '<span class="text-xs text-gray-500 ml-2">AI Receptionist</span>' +
+                            '</div>';
                     } else {
-                        msgDiv.innerHTML = `
-                            <div class="flex-1 flex justify-end">
-                                <div class="text-right">
-                                    <div class="bg-brand-orange/20 rounded-2xl rounded-tr-none px-4 py-3 inline-block">
-                                        <p class="text-sm text-white">${line.text}</p>
-                                    </div>
-                                    <span class="text-xs text-gray-500 mr-2 block mt-1">Caller</span>
-                                </div>
-                            </div>
-                            <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="user" class="w-4 h-4 text-gray-400"></i>
-                            </div>`;
+                        msgDiv.innerHTML =
+                            '<div class="flex-1 flex justify-end">' +
+                                '<div class="text-right">' +
+                                    '<div class="bg-brand-orange/20 rounded-2xl rounded-tr-none px-4 py-3 inline-block">' +
+                                        '<p class="text-sm text-white">' + line.text + '</p>' +
+                                    '</div>' +
+                                    '<span class="text-xs text-gray-500 mr-2 block mt-1">Caller</span>' +
+                                '</div>' +
+                            '</div>' +
+                            '<div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center flex-shrink-0">' +
+                                '<i data-lucide="user" class="w-4 h-4 text-gray-400"></i>' +
+                            '</div>';
                     }
                     container.appendChild(msgDiv);
                     lucide.createIcons();
@@ -674,7 +668,7 @@
             isPlaying = true;
             document.getElementById('playIcon').classList.add('hidden');
             document.getElementById('pauseIcon').classList.remove('hidden');
-            document.querySelectorAll('.waveform-bar').forEach(bar => { bar.style.animationPlayState = 'running'; });
+            document.querySelectorAll('.waveform-bar').forEach(function(bar) { bar.style.animationPlayState = 'running'; });
             demoAudio.play();
         }
 
@@ -682,8 +676,7 @@
             isPlaying = false;
             document.getElementById('playIcon').classList.remove('hidden');
             document.getElementById('pauseIcon').classList.add('hidden');
-            document.querySelectorAll('.waveform-bar').forEach(bar => { bar.style.animationPlayState = 'paused'; });
-            clearInterval(progressInterval);
+            document.querySelectorAll('.waveform-bar').forEach(function(bar) { bar.style.animationPlayState = 'paused'; });
             demoAudio.pause();
         }
 
@@ -699,7 +692,7 @@
         function formatTime(seconds) {
             const mins = Math.floor(seconds / 60);
             const secs = Math.floor(seconds % 60);
-            return `${mins}:${secs.toString().padStart(2, '0')}`;
+            return mins + ':' + (secs < 10 ? '0' : '') + secs;
         }
 
         demoAudio.addEventListener('loadedmetadata', function() {
@@ -718,14 +711,14 @@
 
         generateWaveform();
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        const demoObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting && !isPlaying && currentTime === 0) {
                     setTimeout(playAudio, 500);
                 }
             });
         }, { threshold: 0.5 });
-        observer.observe(document.getElementById('demo'));
+        demoObserver.observe(document.getElementById('demo'));
 
         document.getElementById('quoteForm').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -783,10 +776,11 @@
             }
         }
 
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                var target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     document.getElementById('mobile-menu').classList.add('hidden');
@@ -794,8 +788,22 @@
             });
         });
 
-        const scrollObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        // Scroll animations
+        const scrollObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
-                    entry.tar
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.glass-card, section > div').forEach(function(el) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            scrollObserver.observe(el);
+        });
+    </script>
+</body>
+</html>
