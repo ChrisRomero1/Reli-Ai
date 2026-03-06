@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reli AI — Admin</title>
+    <meta name="robots" content="noindex, nofollow">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { brand: { orange: '#FF6B35', dark: '#0A0A0A', gray: '#1A1A1A' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0A0A0A; color: white; }
+        .glass-card { background: rgba(26,26,26,0.8); backdrop-filter: blur(10px); border: 1px solid rgba(255,107,53,0.1); }
+        .glow-orange { box-shadow: 0 0 40px rgba(255,107,53,0.15); }
+    </style>
+</head>
+<body class="font-sans antialiased min-h-screen">
+
+    <!-- Login Screen -->
+    <div id="loginScreen" class="min-h-screen flex items-center justify-center px-4">
+        <div class="glass-card rounded-3xl p-10 w-full max-w-sm glow-orange text-center">
+            <div class="flex items-center justify-center gap-3 mb-8">
+                <img src="assets/reliailogo.png" alt="Reli AI" class="h-10 w-10 object-contain">
+                <span class="text-2xl font-bold">Reli<span class="text-brand-orange">AI</span></span>
+            </div>
+            <h1 class="text-xl font-bold mb-2">Admin Dashboard</h1>
+            <p class="text-gray-400 text-sm mb-8">Enter your password to continue</p>
+            <input type="password" id="passwordInput" placeholder="Password" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-brand-orange focus:outline-none mb-4" onkeydown="if(event.key==='Enter') login()">
+            <button onclick="login()" class="w-full py-3 bg-brand-orange hover:bg-orange-600 text-white rounded-xl font-semibold transition-all">Sign In</button>
+            <p id="loginError" class="text-red-400 text-sm mt-4 hidden">Incorrect password</p>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="hidden">
+        <!-- Nav -->
+        <nav class="bg-brand-dark/90 backdrop-blur-md border-b border-white/5 px-6 py-4">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <img src="assets/reliailogo.png" alt="Reli AI" class="h-8 w-8 object-contain">
+                    <span class="font-bold">Reli<span class="text-brand-orange">AI</span> <span class="text-gray-400 font-normal text-sm">Admin</span></span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="/" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-1"><i data-lucide="external-link" class="w-4 h-4"></i> View Site</a>
+                    <button onclick="logout()" class="text-sm text-gray-400 hover:text-red-400 transition-colors flex items-center gap-1"><i data-lucide="log-out" class="w-4 h-4"></i> Logout</button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+            <h2 class="text-2xl font-bold mb-2">Overview</h2>
+            <p class="text-gray-400 text-sm mb-8" id="lastUpdated"></p>
+
+            <!-- Stat Cards -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="flex items-center gap-2 mb-3"><i data-lucide="eye" class="w-5 h-5 text-brand-orange"></i><span class="text-xs text-gray-400 uppercase tracking-wider">Site Visits</span></div>
+                    <p class="text-4xl font-bold" id="statVisits">—</p>
+                    <p class="text-xs text-gray-500 mt-1">This browser only</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="flex items-center gap-2 mb-3"><i data-lucide="file-text" class="w-5 h-5 text-brand-orange"></i><span class="text-xs text-gray-400 uppercase tracking-wider">Quote Requests</span></div>
+                    <p class="text-4xl font-bold" id="statLeads">—</p>
+                    <p class="text-xs text-gray-500 mt-1">Form submissions</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="flex items-center gap-2 mb-3"><i data-lucide="trending-up" class="w-5 h-5 text-brand-orange"></i><span class="text-xs text-gray-400 uppercase tracking-wider">Top Industry</span></div>
+                    <p class="text-2xl font-bold" id="statTopIndustry">—</p>
+                    <p class="text-xs text-gray-500 mt-1">Most submitted</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="flex items-center gap-2 mb-3"><i data-lucide="phone" class="w-5 h-5 text-brand-orange"></i><span class="text-xs text-gray-400 uppercase tracking-wider">Demo Line</span></div>
+                    <p class="text-2xl font-bold text-green-400">Live</p>
+                    <p class="text-xs text-gray-500 mt-1">(423) 418-6701</p>
+                </div>
+            </div>
+
+            <!-- External Dashboards -->
+            <h3 class="text-lg font-bold mb-4">Your Analytics Dashboards</h3>
+            <div class="grid md:grid-cols-3 gap-4 mb-10">
+                <a href="https://analytics.google.com" target="_blank" class="glass-card rounded-2xl p-5 hover:border-brand-orange/40 transition-all group flex items-center gap-4">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/20 transition-colors">
+                        <i data-lucide="bar-chart-2" class="w-6 h-6 text-blue-400"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold">Google Analytics</p>
+                        <p class="text-xs text-gray-400 mt-0.5">Visitors, traffic sources, behavior</p>
+                    </div>
+                    <i data-lucide="arrow-right" class="w-4 h-4 text-gray-500 ml-auto group-hover:text-brand-orange transition-colors"></i>
+                </a>
+                <a href="https://search.google.com/search-console" target="_blank" class="glass-card rounded-2xl p-5 hover:border-brand-orange/40 transition-all group flex items-center gap-4">
+                    <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-green-500/20 transition-colors">
+                        <i data-lucide="search" class="w-6 h-6 text-green-400"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold">Search Console</p>
+                        <p class="text-xs text-gray-400 mt-0.5">Google rankings, clicks, impressions</p>
+                    </div>
+                    <i data-lucide="arrow-right" class="w-4 h-4 text-gray-500 ml-auto group-hover:text-brand-orange transition-colors"></i>
+                </a>
+                <a href="https://business.facebook.com/events_manager2" target="_blank" class="glass-card rounded-2xl p-5 hover:border-brand-orange/40 transition-all group flex items-center gap-4">
+                    <div class="w-12 h-12 bg-blue-600/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600/20 transition-colors">
+                        <i data-lucide="target" class="w-6 h-6 text-blue-500"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold">Meta Pixel</p>
+                        <p class="text-xs text-gray-400 mt-0.5">Ad events, leads, conversions</p>
+                    </div>
+                    <i data-lucide="arrow-right" class="w-4 h-4 text-gray-500 ml-auto group-hover:text-brand-orange transition-colors"></i>
+                </a>
+            </div>
+
+            <!-- Leads Table -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <div class="px-6 py-4 border-b border-white/5 flex items-center justify-between">
+                    <h3 class="font-bold">Quote Requests</h3>
+                    <button onclick="clearLeads()" class="text-xs text-gray-500 hover:text-red-400 transition-colors">Clear all</button>
+                </div>
+                <div id="leadsTable" class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-white/5">
+                                <th class="text-left px-6 py-3 text-xs text-gray-400 uppercase tracking-wider font-medium">Date</th>
+                                <th class="text-left px-6 py-3 text-xs text-gray-400 uppercase tracking-wider font-medium">Name</th>
+                                <th class="text-left px-6 py-3 text-xs text-gray-400 uppercase tracking-wider font-medium">Business</th>
+                                <th class="text-left px-6 py-3 text-xs text-gray-400 uppercase tracking-wider font-medium">Industry</th>
+                                <th class="text-left px-6 py-3 text-xs text-gray-400 uppercase tracking-wider font-medium">Volume</th>
+                                <th class="text-left px-6 py-3 text-xs text-gray-400 uppercase tracking-wider font-medium">Contact</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leadsBody"></tbody>
+                    </table>
+                    <div id="noLeads" class="hidden px-6 py-12 text-center text-gray-500">No quote requests yet. They'll appear here when someone fills out the form.</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        var ADMIN_PASSWORD = 'reliai2026';
+
+        function login() {
+            var pw = document.getElementById('passwordInput').value;
+            if (pw === ADMIN_PASSWORD) {
+                localStorage.setItem('reli_admin_auth', '1');
+                showDashboard();
+            } else {
+                document.getElementById('loginError').classList.remove('hidden');
+                document.getElementById('passwordInput').value = '';
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('reli_admin_auth');
+            document.getElementById('dashboard').classList.add('hidden');
+            document.getElementById('loginScreen').classList.remove('hidden');
+        }
+
+        function showDashboard() {
+            document.getElementById('loginScreen').classList.add('hidden');
+            document.getElementById('dashboard').classList.remove('hidden');
+            lucide.createIcons();
+            loadData();
+        }
+
+        function loadData() {
+            var visits = parseInt(localStorage.getItem('reli_visits') || '0');
+            var leads = JSON.parse(localStorage.getItem('reli_leads') || '[]');
+
+            document.getElementById('statVisits').textContent = visits.toLocaleString();
+            document.getElementById('statLeads').textContent = leads.length;
+            document.getElementById('lastUpdated').textContent = 'Last updated: ' + new Date().toLocaleString();
+
+            // Top industry
+            if (leads.length > 0) {
+                var counts = {};
+                leads.forEach(function(l) { counts[l.industry] = (counts[l.industry] || 0) + 1; });
+                var top = Object.keys(counts).sort(function(a,b){ return counts[b]-counts[a]; })[0];
+                var labels = { salon: 'Salon/Barber', automotive: 'Auto Shop', home: 'Home Services', legal: 'Legal', realestate: 'Real Estate', other: 'Other' };
+                document.getElementById('statTopIndustry').textContent = labels[top] || top;
+            }
+
+            // Leads table
+            var tbody = document.getElementById('leadsBody');
+            var noLeads = document.getElementById('noLeads');
+            tbody.innerHTML = '';
+
+            if (leads.length === 0) {
+                noLeads.classList.remove('hidden');
+            } else {
+                noLeads.classList.add('hidden');
+                var industryLabels = { salon: 'Salon/Barber', automotive: 'Auto Shop', home: 'Home Services', legal: 'Legal', realestate: 'Real Estate', other: 'Other' };
+                var volumeLabels = { low: 'Low Volume', mid: 'Mid Volume', high: 'High Volume', enterprise: 'Enterprise' };
+                leads.slice().reverse().forEach(function(lead) {
+                    var date = new Date(lead.date);
+                    var row = document.createElement('tr');
+                    row.className = 'border-b border-white/5 hover:bg-white/5 transition-colors';
+                    row.innerHTML =
+                        '<td class="px-6 py-4 text-gray-400 whitespace-nowrap">' + date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}) + '</td>' +
+                        '<td class="px-6 py-4 font-medium whitespace-nowrap">' + (lead.name || '—') + '</td>' +
+                        '<td class="px-6 py-4 text-gray-300 whitespace-nowrap">' + (lead.business || '—') + '</td>' +
+                        '<td class="px-6 py-4"><span class="px-2 py-1 bg-brand-orange/10 text-brand-orange rounded-full text-xs">' + (industryLabels[lead.industry] || lead.industry || '—') + '</span></td>' +
+                        '<td class="px-6 py-4 text-gray-300 whitespace-nowrap">' + (volumeLabels[lead.volume] || lead.volume || '—') + '</td>' +
+                        '<td class="px-6 py-4"><a href="tel:' + (lead.phone||'') + '" class="text-brand-orange hover:underline text-xs mr-3">' + (lead.phone||'') + '</a><a href="mailto:' + (lead.email||'') + '" class="text-gray-400 hover:text-brand-orange text-xs">' + (lead.email||'') + '</a></td>';
+                    tbody.appendChild(row);
+                });
+            }
+        }
+
+        function clearLeads() {
+            if (confirm('Clear all stored leads? This cannot be undone.')) {
+                localStorage.removeItem('reli_leads');
+                localStorage.removeItem('reli_conversions');
+                loadData();
+            }
+        }
+
+        // Check auth on load
+        window.onload = function() {
+            lucide.createIcons();
+            if (localStorage.getItem('reli_admin_auth') === '1') {
+                showDashboard();
+            }
+        };
+    </script>
+</body>
+</html>
